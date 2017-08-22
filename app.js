@@ -7,6 +7,7 @@ import { fetchDataFromAPI } from './actions'
 let styles
 
 const App = (props) => {
+  
   const {
     container,
     text,
@@ -14,6 +15,9 @@ const App = (props) => {
     buttonText
   } = styles
   const { datamodle, isFetching } = props.datamodle;
+  state={
+      myText: 'Data loading'
+  }
   return (
     <View style={container}>
       <Text style={text}>Redux Example</Text>
@@ -27,7 +31,7 @@ const App = (props) => {
       <ScrollView style={container}>
       
       {
-        isFetching && <Text>Loading</Text>
+        isFetching && <Text>{this.state.myText}</Text>
       }
       {
         datamodle.length ? (
@@ -83,7 +87,6 @@ function mapStateToProps (state) {
 function mapDispatchToProps (dispatch) {
   return {
     getDataRes: (url) => dispatch(fetchDataFromAPI(url)),
-
   }
 }
 
