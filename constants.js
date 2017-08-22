@@ -1,3 +1,5 @@
 export const FETCHING_DATA = 'FETCHING_DATA'
 export const FETCHING_DATA_SUCCESS = 'FETCHING_DATA_SUCCESS'
 export const FETCHING_DATA_FAILURE = 'FETCHING_DATA_FAILURE'
+export const FIRST_URL='https://api.myjson.com/bins/typm1'
+export const SECOND_URL='https://api.myjson.com/bins/7nemp'

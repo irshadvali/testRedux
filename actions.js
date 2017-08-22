@@ -1,9 +1,9 @@
-import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE } from './constants'
+import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE,FIRST_URL } from './constants'
 
-export function fetchDataFromAPI() {
+export function fetchDataFromAPI(url) {
   return (dispatch) => {
-    dispatch(getDataRes())
-    fetch('https://api.myjson.com/bins/typm1')
+    dispatch(getDataRes(url))
+    fetch(url)
     .then(data => data.json())
     .then(json => {
       console.log('json:', json)

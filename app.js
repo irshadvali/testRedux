@@ -1,6 +1,6 @@
 import React from 'react'
 import { TouchableHighlight, View, Text, StyleSheet,ScrollView } from 'react-native'
-
+import { FIRST_URL,SECOND_URL } from './constants'
 import { connect } from 'react-redux'
 import { fetchDataFromAPI } from './actions'
 
@@ -17,8 +17,12 @@ const App = (props) => {
   return (
     <View style={container}>
       <Text style={text}>Redux Example</Text>
-      <TouchableHighlight style={button} onPress={() => props.getDataRes()}>
-        <Text style={buttonText}>Load Data</Text>
+      <TouchableHighlight style={button} onPress={() => props.getDataRes(FIRST_URL)}>
+        <Text style={buttonText}>Load City</Text>
+      </TouchableHighlight>
+      
+        <TouchableHighlight style={button} onPress={() => props.getDataRes(SECOND_URL)}>
+        <Text style={buttonText}>Load Country</Text>
       </TouchableHighlight>
       <ScrollView style={container}>
       
@@ -78,7 +82,8 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    getDataRes: () => dispatch(fetchDataFromAPI())
+    getDataRes: (url) => dispatch(fetchDataFromAPI(url)),
+
   }
 }
 
